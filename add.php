@@ -29,10 +29,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $heroi_id = $pdo->lastInsertId();
 
-        $stmt_habilidade = $pdo->prepare("INSERT INTO heroi_habilidade (heroi_id, habilidade_id, nivel) VALUES (?, ?, ?)");
-        foreach ($habilidades as $habilidade) {
-            $stmt_habilidade->execute([$heroi_id, $habilidade['id'], $habilidade['nivel']]);
-        }
+
+        if (!empty($habilidades)) {
+            foreach ($habilidades as $hab) {
+                $stmt = $pdo->prepare("INSERT INTO heroi_habilidade (heroi_id, habilidade_id, nivel) VALUES (?, ?, ?)");
+                $stmt->execute([$heroi_id, $hab['id'], $hab['nivel']]);
+            }
+        }        
 
         echo "sucesso";
     } catch (Exception $e) {

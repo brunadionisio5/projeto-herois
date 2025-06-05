@@ -61,25 +61,21 @@ $habilidades = $pdo->query("SELECT * FROM habilidades")->fetchAll(PDO::FETCH_ASS
         </select>
         
         <br><br>
-        <label>Adicionar Habilidade:</label>
-        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
-            <select id="selectHabilidade">
-                <option value="">-- Selecione uma habilidade --</option>
-                <?php foreach ($habilidades as $h): ?>
-                    <option value="<?= $h['id'] ?>"><?= $h['nome'] ?></option>
-                <?php endforeach; ?>
-            </select>
+        <label>Habilidades:</label>
+        <select id="selectHabilidade">
+            <option value="">Selecione uma habilidade</option>
+            <?php foreach ($habilidades as $h): ?>
+                <option value="<?= $h['id'] ?>"><?= $h['nome'] ?></option>
+            <?php endforeach; ?>
+        </select>
 
-            <select id="selectNivel">
-                <?php for ($i = 1; $i <= 5; $i++): ?>
-                    <option value="<?= $i ?>">Nível <?= $i ?></option>
-                <?php endfor; ?>
-            </select>
+        <label>Nível:</label>
+        <input type="number" id="selectNivel" min="1" max="100">
 
-            <button type="button" id="btnAddHabilidade">Adicionar</button>
-        </div>
+        <button type="button" id="btnAddHabilidade">Adicionar Habilidade</button>
 
         <ul id="listaHabilidades"></ul>
+
 
  
         <br><br>
@@ -147,7 +143,6 @@ $habilidades = $pdo->query("SELECT * FROM habilidades")->fetchAll(PDO::FETCH_ASS
             var raridade = $("#raridade").val();
             var tipo = $("#tipo").val();
             var universo_id = $("#universo_id").val();
-            var habilidadesSelecionadas = $("#habilidades").val();
             var forca = $("#forca").val();
             var velocidade = $("#velocidade").val();
             var inteligencia = $("#inteligencia").val();
