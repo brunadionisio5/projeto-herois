@@ -11,7 +11,7 @@ body {
     background-color: #f1f3f2;
 }
 
-button {
+button, .btn-editar {
     background-color: #1e293b;
     color: white; 
     border: none; 
@@ -92,6 +92,7 @@ a{
     padding: 20px;
     border: 2px solid #ccc;
     border-radius: 8px;
+    width: 340px;
 }
 
 .card:hover {
@@ -109,7 +110,9 @@ a{
 }
 
 .card-img {
-    height: 200px;
+    width: 300px;
+    border-radius: 8px;
+    padding-top: 10px;
 }
 
 .container {
@@ -138,19 +141,3 @@ a{
 .lista {
     list-style: none;
 }
-
-
-/* .modal {
-    display: none;
-    position: fixed;
-    top: 10%;
-    left: 50%;
-    transform: translateX(-50%);
-    background: #fff;
-    padding: 20px;
-    border: 2px solid #ccc;
-    z-index: 999;
-}
-.modal.active {
-    display: block;
-} */

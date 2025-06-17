@@ -68,8 +68,8 @@ while ($heroi = $stmt->fetch(PDO::FETCH_ASSOC)) {
     }
 
     echo "
-        <a href='editar.php?id={$heroi['id']}' class='btn_editar'>Editar</a>
-        <button class='btn_excluir' data-id='{$heroi['id']}'>Excluir</button>
+        <a href='editar.php?id={$heroi['id']}' class='btn-editar'>Editar</a>
+        <button class='btn-excluir' data-id='{$heroi['id']}'>Excluir</button>
     </div>";
 }
 ?>
@@ -77,13 +77,13 @@ while ($heroi = $stmt->fetch(PDO::FETCH_ASSOC)) {
 
 <script>
 $(document).ready(function() {
-    $(".btn_excluir").click(function() {
+    $(".btn-excluir").click(function() {
         var id = $(this).data("id");
 
         if (confirm("Tem certeza que deseja excluir este herói?")) {
             $.post("excluir.php", { id: id }, function(resposta) {
                 if (resposta === "sucesso") {
-                    location.reload(); // atualiza a página
+                    location.reload();
                 } else {
                     alert("Erro ao excluir o herói.");
                 }

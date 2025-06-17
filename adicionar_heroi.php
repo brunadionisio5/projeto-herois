@@ -172,6 +172,8 @@ $habilidades = $pdo->query("SELECT * FROM habilidades")->fetchAll(PDO::FETCH_ASS
                 vitalidade: vitalidade,
                 resistencia: resistencia
             }, function(resposta) {
+                console.log("Resposta do servidor:", resposta);
+
                 if (resposta.trim() === "sucesso") {
                     window.location.href = "home.php";
                 } else {
@@ -181,6 +183,4 @@ $habilidades = $pdo->query("SELECT * FROM habilidades")->fetchAll(PDO::FETCH_ASS
         });
     });
     </script>
-
-</body>
 </html>
